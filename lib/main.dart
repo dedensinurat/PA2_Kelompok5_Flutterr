@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/Sidebar.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
-import 'package:flutter_application_1/pages/request_bimbingan.dart';
-import 'package:flutter_application_1/pages/bimbingan.dart';
+
 void main() {
   runApp(const MyApp());
 }

@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
@@ -44,6 +45,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   'assets/images/logo.png',
                   fit: BoxFit.cover,
                 ),
+              ),
+              const SizedBox(height: 50),
+              Text(
+                'VokasiTera IT DEL',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 15),
+              Text(
+              'Martuhan-Marroha-Marbisuk',
+              style: TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 20),
               TextField(
