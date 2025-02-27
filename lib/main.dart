@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/Sidebar.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
-
+import 'package:flutter_application_1/pages/request_bimbingan.dart';
+import 'package:flutter_application_1/pages/bimbingan.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,8 +20,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+<<<<<<< Updated upstream
       home: const HomeScreen(),
         // home: const Sidebar(),
+=======
+      // home: const HomeScreen(),
+      // home: RequestBimbinganPage(),
+      home: BimbinganScreen(),
+>>>>>>> Stashed changes
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
