@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/request_bimbingan.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Bimbingan());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Bimbingan extends StatelessWidget {
+  const Bimbingan({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,10 @@ class BimbinganScreen extends StatelessWidget {
                 backgroundColor: Colors.green,
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => RequestBimbinganPage()));
+              },
               child: const Text(
                 "Request Bimbingan",
                 style: TextStyle(color: Colors.white, fontSize: 16),
