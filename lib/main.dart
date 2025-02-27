@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/Sidebar.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomeScreen(),
+        // home: const Sidebar(),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

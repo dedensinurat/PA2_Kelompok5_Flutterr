@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/Sidebar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,7 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 height: 50, 
                 child: ElevatedButton(
-                  onPressed: () {},
+                  //untuk  link 
+                  onPressed: () {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Sidebar()));
+                  },
                   child: const Text('Login'),
                 ),
               ),
