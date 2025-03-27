@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //untuk  link 
                   onPressed: () {
                     Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Sidebar()));
+                    MaterialPageRoute(builder: (context) => const BottomNavbar()));
                   },
                   child: const Text('Login'),
                 ),

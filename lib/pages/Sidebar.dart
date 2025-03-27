@@ -1,92 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/bimbingan.dart';
-import 'package:flutter_application_1/pages/login_page.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
-
-class Sidebar extends StatelessWidget {
-  const Sidebar({Key?key}): super(key: key);
+class BottomNavbar extends StatefulWidget {
+  const BottomNavbar({super.key});
 
   @override
-  Widget build(BuildContext context) =>Scaffold(
-    appBar: AppBar(
-      title: const Text('VokasiTera'),
-      backgroundColor: const Color.fromARGB(255, 232, 234, 237),
-    ),
-    drawer: const NavigationDrawer(),
-    body: Column(
-      children: [
-        const Padding(
-          padding: const EdgeInsets.all(30),
-        child: Divider(color: Colors.black),
-       
-        ),
-      ]
-    ),
-  );
+  State<BottomNavbar> createState() => _BottomNavbarState();
 }
- class NavigationDrawer extends StatelessWidget{
-  const NavigationDrawer({Key? key}): super(key: key);
 
+class _BottomNavbarState extends State<BottomNavbar> {
+  final List<Widget>list = const[
+    Text('Home'),
+    Text('Bimbingan'),
+    Text('Notifikasi'),
+    Text('Profil'),
+  ];
+  int _selectedIndex =0;
+  List<dynamic> buildMenuItems = [
+    {
+      'icon':'assets/Icons/home.png',
+      'Label':'Home',
+    },
+      {
+      'icon':'assets/Icons/folder.png',
+      'Label':'Bimbingan',
+    },
+      {
+      'icon':'assets/Icons/notification.png',
+      'Label':'Notifikasi',
+    },
+      {
+      'icon':'assets/Icons/user.png',
+      'Label':'Profil',
+    },
+  ];
+
+  void _onItemTapped(int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
-  Widget build(BuildContext context) => Drawer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          buildHeader(context),
-          Expanded(child: buildMenuItems(context)),
-        ]
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: const[],
+      ),
+      body: Center(
+        child: list[_selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        unselectedItemColor: const Color.fromARGB(255, 109, 107, 107),
+        elevation: 32.0,
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: const TextStyle(
+          height: 1,
+          fontSize: 12,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          height: 1,
+          fontSize: 12,
+        ),
+        items: buildMenuItems.map((i){
+          return BottomNavigationBarItem(
+            activeIcon: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 253, 253, 253),
+                borderRadius: BorderRadius.all(Radius.circular(25)),
+              ),
+              child:Image.asset(i['icon'],
+              color: const Color.fromARGB(255, 6, 161, 239),
+              // width: 24,
+              // height: 24,
+              ),
+            ),
+            icon: Image.asset(
+              i['icon'],
+              color:Colors.grey,
+              width: 24,
+              height: 24,
+            ),
+            label: i['Label'] ??'',
+          );
+        }).toList(),
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
       ),
     );
+  }
 }
-
-Widget buildHeader(BuildContext context) => Container(
-  color: const Color.fromARGB(255, 15, 82, 206),
-  padding: EdgeInsets.only(
-    top: MediaQuery.of(context).padding.top,
-  ),
-  child: Column(
-    children: const [
-      CircleAvatar(
-        radius: 50,
-        backgroundImage:AssetImage('assets/images/profile.jpg'),
-      ),
-      SizedBox(height: 5),
-      Text('Kelompok 5')
-    ],
-  ),
-
-);
-Widget buildMenuItems(BuildContext context) => Column(
-  children: [
-    ListTile(
-      leading: const Icon(Icons.home_filled),
-      title: const Text('Home'),
-      onTap: () {},
-    ),
-    ListTile(
-      leading: const Icon(Icons.home_filled),
-      title: const Text('Request Bimbingan'),
-      onTap: () {
-        Navigator.push(context, 
-        MaterialPageRoute(builder: (context) => const Bimbingan() ));
-      },
-    ),
-      ListTile(
-      leading: const Icon(Icons.notifications),
-      title: const Text('Notifikasi'),
-      onTap: () {
-      },
-    ),
-    const Spacer(),
-    const Divider(),
-    ListTile(
-      leading: const Icon(Icons.logout,color: Colors.black),
-      title: const Text('Log Out'),
-      onTap: () {
-         Navigator.push(context,
-         MaterialPageRoute(builder: (context) => const HomeScreen() ));
-      },
-    )
-  ],
-);
-
