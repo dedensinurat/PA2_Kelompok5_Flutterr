@@ -11,7 +11,7 @@ class Sidebar extends StatelessWidget {
   Widget build(BuildContext context) =>Scaffold(
     appBar: AppBar(
       title: const Text('VokasiTera'),
-      backgroundColor: const Color.fromARGB(255, 232, 234, 237),
+      backgroundColor: const Color.fromARGB(255, 205, 212, 222),
     ),
     drawer: const NavigationDrawer(),
     body: Column(
@@ -41,7 +41,7 @@ class Sidebar extends StatelessWidget {
 }
 
 Widget buildHeader(BuildContext context) => Container(
-  color: const Color.fromARGB(255, 15, 82, 206),
+  color: const Color.fromARGB(255, 234, 236, 239),
   padding: EdgeInsets.only(
     top: MediaQuery.of(context).padding.top,
   ),
@@ -99,4 +99,3 @@ Widget buildMenuItems(BuildContext context) => Column(
     )
   ],
 );
-
